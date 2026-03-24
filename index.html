@@ -51,6 +51,11 @@
 
   <script>
 
+    function formatarData(data) {
+      let texto = String(data);
+      return `${texto.slice(6, 8)}/${texto.slice(4, 6)}/${texto.slice(0, 4)}`;
+    }
+
     function buscarLocalizacao() {
       document.getElementById("status").innerText = "Obtendo localização...";
 
@@ -87,7 +92,7 @@
 
             let card = `
               <div class="card">
-                <h3>${dia.date}</h3>
+                <h3>${formatarData(dia.date)}</h3>
                 <p>Clima: ${dia.weather}</p>
                 <p>Temp: min ${dia.temp2m.min}°C / max ${dia.temp2m.max}°C</p>
               </div>
