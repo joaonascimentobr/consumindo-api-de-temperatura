@@ -1,5 +1,9 @@
 # 🌦️ Aula Prática: Consumindo API de Clima com JavaScript
 
+## 📘 Documentação de versões
+
+O histórico de mudanças do projeto está em [CHANGELOG.md](CHANGELOG.md).
+
 ## 🎯 Objetivo da Aula
 
 Nesta aula, vamos aprender de forma prática como funciona a comunicação entre uma aplicação web e uma API externa.

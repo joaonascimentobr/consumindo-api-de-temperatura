@@ -4,39 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Previsão do Tempo</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f0f0f0;
-      margin: 0;
-      padding: 16px;
-      box-sizing: border-box;
-    }
-
-    .card {
-      background: white;
-      margin: 10px auto;
-      padding: 15px;
-      width: 100%;
-      max-width: 320px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px #ccc;
-      box-sizing: border-box;
-    }
-
-    button {
-      width: 100%;
-      max-width: 320px;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background: #2d6cdf;
-      color: white;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
@@ -48,67 +17,7 @@
   <p id="status"></p>
 
   <div id="resultado"></div>
-
-  <script>
-
-    function formatarData(data) {
-      let texto = String(data);
-      return `${texto.slice(6, 8)}/${texto.slice(4, 6)}/${texto.slice(0, 4)}`;
-    }
-
-    function buscarLocalizacao() {
-      document.getElementById("status").innerText = "Obtendo localização...";
-
-      navigator.geolocation.getCurrentPosition(
-        (posicao) => {
-          let lat = posicao.coords.latitude;
-          let lon = posicao.coords.longitude;
-
-          document.getElementById("status").innerText =
-            "Lat: " + lat + " | Lon: " + lon;
-
-          buscarClima(lat, lon);
-        },
-        () => {
-          alert("Não foi possível obter localização");
-        }
-      );
-    }
-
-    function buscarClima(lat, lon) {
-      let url = `https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`;
-
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-
-          let resultado = document.getElementById("resultado");
-          resultado.innerHTML = "";
-
-          // pegar os 3 primeiros dias
-          let dias = data.dataseries.slice(0, 3);
-
-          dias.forEach(dia => {
-
-            let card = `
-              <div class="card">
-                <h3>${formatarData(dia.date)}</h3>
-                <p>Clima: ${dia.weather}</p>
-                <p>Temp: min ${dia.temp2m.min}°C / max ${dia.temp2m.max}°C</p>
-              </div>
-            `;
-
-            resultado.innerHTML += card;
-          });
-
-        })
-        .catch(err => {
-          console.log(err);
-          alert("Erro ao buscar clima");
-        });
-    }
-
-  </script>
+  <script src="index.js"></script>
 
 </body>
 </html>
