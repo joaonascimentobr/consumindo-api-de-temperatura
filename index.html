@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Previsão do Tempo</title>
 
   <style>
@@ -9,15 +10,31 @@
       font-family: Arial;
       text-align: center;
       background: #f0f0f0;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
     }
 
     .card {
       background: white;
       margin: 10px auto;
       padding: 15px;
-      width: 200px;
+      width: 100%;
+      max-width: 320px;
       border-radius: 10px;
       box-shadow: 0 0 5px #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      max-width: 320px;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #2d6cdf;
+      color: white;
     }
   </style>
 </head>
