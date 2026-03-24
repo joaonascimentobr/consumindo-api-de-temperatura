@@ -4,20 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Previsão do Tempo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
+  <main class="container">
+    <h1>Previsão do Tempo</h1>
+    <p class="descricao">
+      Veja a previsão usando sua localização atual ou escolhendo uma cidade.
+    </p>
 
-  <h1>🌦️ Previsão do Tempo</h1>
+    <div class="acoes">
+      <button id="botaoLocalizacao" type="button">Usar minha localização</button>
+      <button id="botaoCidade" type="button" class="botao-secundario">Escolher cidade</button>
+    </div>
 
-  <button onclick="buscarLocalizacao()">Usar minha localização</button>
-
-  <p id="status"></p>
-
-  <div id="resultado"></div>
+    <p id="cidadeAtual" class="cidade-atual"></p>
+    <p id="status" class="status"></p>
+    <div id="resultado" class="resultado"></div>
+  </main>
   <script src="index.js"></script>
-
 </body>
 </html>

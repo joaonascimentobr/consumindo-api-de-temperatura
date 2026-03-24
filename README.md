@@ -4,6 +4,21 @@
 
 O histórico de mudanças do projeto está em [CHANGELOG.md](CHANGELOG.md).
 
+## 📚 Material complementar
+
+Para a parte de busca de cidades com OpenStreetMap/Nominatim, consulte também o guia:
+
+- [GUIA_NOMINATIM.md](GUIA_NOMINATIM.md)
+
+## 🆕 Novidades da versão 0.3
+
+Nesta versão, o projeto passou a ter:
+
+- escolha manual de cidade em uma tela separada
+- integração com a API Nominatim para buscar latitude e longitude
+- retorno para a tela principal usando query string
+- material complementar explicando o uso da API em sala de aula
+
 ## 🎯 Objetivo da Aula
 
 Nesta aula, vamos aprender de forma prática como funciona a comunicação entre uma aplicação web e uma API externa.
@@ -44,6 +59,26 @@ Principais características:
 - Funciona via HTTP
 - Retorna dados em JSON
 - Utiliza coordenadas geográficas (latitude e longitude)
+
+---
+
+## 🏙️ Sobre a API de busca de cidades
+
+Para permitir que o aluno escolha uma cidade manualmente, o projeto também usa a API Nominatim, baseada em dados do OpenStreetMap.
+
+Essa API foi usada para:
+
+- pesquisar cidades pelo nome
+- obter latitude e longitude
+- enviar essas coordenadas para a tela principal
+
+No guia [GUIA_NOMINATIM.md](GUIA_NOMINATIM.md), está explicado:
+
+- qual endpoint foi usado
+- quais parâmetros foram enviados
+- quais campos da resposta foram aproveitados
+- como acontece o redirecionamento de volta para a página principal
+- quais cuidados de uso a documentação oficial recomenda
 
 ---
 

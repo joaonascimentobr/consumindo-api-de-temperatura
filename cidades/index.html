@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolher Cidade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Escolher cidade</h1>
+    <p class="descricao">
+      Digite o nome de uma cidade para encontrar latitude e longitude.
+    </p>
+
+    <div class="voltar">
+      <a href="../index.html">Voltar para a previsão</a>
+    </div>
+
+    <form id="formBusca" class="form-busca">
+      <label for="campoCidade">Nome da cidade</label>
+      <input
+        type="text"
+        id="campoCidade"
+        placeholder="Exemplo: Rio de Janeiro"
+        autocomplete="off"
+      >
+      <button type="submit">Pesquisar</button>
+    </form>
+
+    <p id="mensagem" class="mensagem"></p>
+    <div id="listaResultados" class="lista-resultados"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

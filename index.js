@@ -5,107 +5,129 @@ function formatarData(data) {
 
 function obterClima(weather) {
   const clima = {
-    clear: { icon: "fa-sun", texto: "Céu limpo", cor: "#f59e0b" },
-    clearday: { icon: "fa-sun", texto: "Céu limpo", cor: "#f59e0b" },
-    clearnight: { icon: "fa-moon", texto: "Céu limpo", cor: "#334155" },
-    pcloudy: { icon: "fa-cloud-sun", texto: "Parcialmente nublado", cor: "#f59e0b" },
-    pcloudyday: { icon: "fa-cloud-sun", texto: "Parcialmente nublado", cor: "#f59e0b" },
-    pcloudynight: { icon: "fa-cloud-moon", texto: "Parcialmente nublado", cor: "#334155" },
-    mcloudy: { icon: "fa-cloud-sun", texto: "Nuvens dispersas", cor: "#64748b" },
-    mcloudyday: { icon: "fa-cloud-sun", texto: "Nuvens dispersas", cor: "#64748b" },
-    mcloudynight: { icon: "fa-cloud-moon", texto: "Nuvens dispersas", cor: "#334155" },
-    cloudy: { icon: "fa-cloud", texto: "Nublado", cor: "#64748b" },
-    cloudyday: { icon: "fa-cloud", texto: "Nublado", cor: "#64748b" },
-    cloudynight: { icon: "fa-cloud", texto: "Nublado", cor: "#64748b" },
-    humid: { icon: "fa-smog", texto: "Úmido / neblina", cor: "#94a3b8" },
-    humidday: { icon: "fa-smog", texto: "Úmido / neblina", cor: "#94a3b8" },
-    humidnight: { icon: "fa-smog", texto: "Úmido / neblina", cor: "#94a3b8" },
-    lightrain: { icon: "fa-cloud-rain", texto: "Chuva fraca", cor: "#0ea5e9" },
-    lightrainday: { icon: "fa-cloud-rain", texto: "Chuva fraca", cor: "#0ea5e9" },
-    lightrainnight: { icon: "fa-cloud-rain", texto: "Chuva fraca", cor: "#0ea5e9" },
-    oshower: { icon: "fa-cloud-rain", texto: "Pancadas ocasionais", cor: "#0ea5e9" },
-    oshowerday: { icon: "fa-cloud-rain", texto: "Pancadas ocasionais", cor: "#0ea5e9" },
-    oshowernight: { icon: "fa-cloud-rain", texto: "Pancadas ocasionais", cor: "#0ea5e9" },
-    ishower: { icon: "fa-cloud-rain", texto: "Pancadas isoladas", cor: "#0ea5e9" },
-    ishowerday: { icon: "fa-cloud-rain", texto: "Pancadas isoladas", cor: "#0ea5e9" },
-    ishowernight: { icon: "fa-cloud-rain", texto: "Pancadas isoladas", cor: "#0ea5e9" },
-    rain: { icon: "fa-cloud-showers-heavy", texto: "Chuva", cor: "#0284c7" },
-    rainday: { icon: "fa-cloud-showers-heavy", texto: "Chuva", cor: "#0284c7" },
-    rainnight: { icon: "fa-cloud-showers-heavy", texto: "Chuva", cor: "#0284c7" },
-    lightsnow: { icon: "fa-snowflake", texto: "Neve fraca", cor: "#60a5fa" },
-    lightsnowday: { icon: "fa-snowflake", texto: "Neve fraca", cor: "#60a5fa" },
-    lightsnownight: { icon: "fa-snowflake", texto: "Neve fraca", cor: "#60a5fa" },
-    snow: { icon: "fa-snowflake", texto: "Neve", cor: "#60a5fa" },
-    snowday: { icon: "fa-snowflake", texto: "Neve", cor: "#60a5fa" },
-    snownight: { icon: "fa-snowflake", texto: "Neve", cor: "#60a5fa" },
-    rainsnow: { icon: "fa-cloud-rain", texto: "Chuva e neve", cor: "#38bdf8" },
-    rainsnowday: { icon: "fa-cloud-rain", texto: "Chuva e neve", cor: "#38bdf8" },
-    rainsnownight: { icon: "fa-cloud-rain", texto: "Chuva e neve", cor: "#38bdf8" },
-    ts: { icon: "fa-bolt", texto: "Trovoadas", cor: "#f97316" },
-    tsday: { icon: "fa-bolt", texto: "Trovoadas", cor: "#f97316" },
-    tsnight: { icon: "fa-bolt", texto: "Trovoadas", cor: "#f97316" },
-    tsrain: { icon: "fa-cloud-bolt", texto: "Tempestade com chuva", cor: "#f97316" },
-    tsrainday: { icon: "fa-cloud-bolt", texto: "Tempestade com chuva", cor: "#f97316" },
-    tsrainnight: { icon: "fa-cloud-bolt", texto: "Tempestade com chuva", cor: "#f97316" },
-    windy: { icon: "fa-wind", texto: "Ventando", cor: "#64748b" }
+    clear: { icone: "☀️", texto: "Céu limpo" },
+    pcloudy: { icone: "⛅", texto: "Parcialmente nublado" },
+    mcloudy: { icone: "☁️", texto: "Muito nublado" },
+    cloudy: { icone: "☁️", texto: "Nublado" },
+    humid: { icone: "🌫️", texto: "Úmido / neblina" },
+    lightrain: { icone: "🌦️", texto: "Chuva fraca" },
+    oshower: { icone: "🌦️", texto: "Pancadas ocasionais" },
+    ishower: { icone: "🌦️", texto: "Pancadas isoladas" },
+    rain: { icone: "🌧️", texto: "Chuva" },
+    lightsnow: { icone: "🌨️", texto: "Neve fraca" },
+    snow: { icone: "❄️", texto: "Neve" },
+    rainsnow: { icone: "🌨️", texto: "Chuva e neve" },
+    ts: { icone: "⛈️", texto: "Trovoadas" },
+    tsrain: { icone: "⛈️", texto: "Tempestade com chuva" }
   };
 
   return clima[weather] || {
-    icon: "fa-cloud",
-    texto: weather,
-    cor: "#64748b"
+    icone: "🌤️",
+    texto: weather
   };
 }
 
+function mostrarStatus(texto) {
+  document.getElementById("status").innerText = texto;
+}
+
+function mostrarCidadeAtual(cidade) {
+  document.getElementById("cidadeAtual").innerText = cidade ? `Cidade: ${cidade}` : "";
+}
+
+function criarCard(dia) {
+  let clima = obterClima(dia.weather);
+
+  return `
+    <div class="card">
+      <h2>${formatarData(dia.date)}</h2>
+      <p class="clima">
+        <span class="clima-icone">${clima.icone}</span>
+        <span>${clima.texto}</span>
+      </p>
+      <p>Temperatura mínima: ${dia.temp2m.min}°C</p>
+      <p>Temperatura máxima: ${dia.temp2m.max}°C</p>
+    </div>
+  `;
+}
+
 function buscarLocalizacao() {
-  document.getElementById("status").innerText = "Obtendo localização...";
+  mostrarCidadeAtual("");
+  mostrarStatus("Obtendo localização...");
 
   navigator.geolocation.getCurrentPosition(
     (posicao) => {
       let lat = posicao.coords.latitude;
       let lon = posicao.coords.longitude;
-
-      document.getElementById("status").innerText =
-        "Lat: " + lat + " | Lon: " + lon;
-
       buscarClima(lat, lon);
     },
     () => {
-      alert("Não foi possível obter localização");
+      mostrarStatus("Não foi possível obter a localização do usuário.");
     }
   );
 }
 
-function buscarClima(lat, lon) {
+function buscarClima(lat, lon, cidade) {
   let url = `https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`;
+  let resultado = document.getElementById("resultado");
+
+  mostrarStatus("Buscando previsão do tempo...");
+  resultado.innerHTML = "";
 
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      let resultado = document.getElementById("resultado");
-      resultado.innerHTML = "";
+      if (!data.dataseries || data.dataseries.length === 0) {
+        throw new Error("Nenhuma previsão foi encontrada.");
+      }
 
       let dias = data.dataseries.slice(0, 3);
 
-      dias.forEach(dia => {
-        let clima = obterClima(dia.weather);
+      if (cidade) {
+        mostrarCidadeAtual(cidade);
+      }
 
-        let card = `
-          <div class="card">
-            <h3>${formatarData(dia.date)}</h3>
-            <p class="weather">
-              <i class="fa-solid ${clima.icon}" style="color: ${clima.cor};" aria-hidden="true"></i>
-              <span>${clima.texto}</span>
-            </p>
-            <p>Temp: min ${dia.temp2m.min}°C / max ${dia.temp2m.max}°C</p>
-          </div>
-        `;
-
-        resultado.innerHTML += card;
-      });
+      mostrarStatus(`Latitude: ${lat} | Longitude: ${lon}`);
+      resultado.innerHTML = dias.map(criarCard).join("");
     })
-    .catch(err => {
-      console.log(err);
-      alert("Erro ao buscar clima");
+    .catch(() => {
+      mostrarStatus("Erro ao buscar a previsão do tempo.");
+      resultado.innerHTML = "";
     });
 }
+
+function lerParametrosDaUrl() {
+  let params = new URLSearchParams(window.location.search);
+  let lat = params.get("lat");
+  let lon = params.get("lon");
+  let cidade = params.get("cidade");
+
+  if (!lat || !lon) {
+    return null;
+  }
+
+  return {
+    lat: Number(lat),
+    lon: Number(lon),
+    cidade: cidade || ""
+  };
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  let botaoLocalizacao = document.getElementById("botaoLocalizacao");
+  let botaoCidade = document.getElementById("botaoCidade");
+  let parametros = lerParametrosDaUrl();
+
+  botaoLocalizacao.addEventListener("click", buscarLocalizacao);
+  botaoCidade.addEventListener("click", () => {
+    window.location.href = "cidades/index.html";
+  });
+
+  // Se a tela recebeu coordenadas pela URL, usa esses dados diretamente.
+  if (parametros && !Number.isNaN(parametros.lat) && !Number.isNaN(parametros.lon)) {
+    buscarClima(parametros.lat, parametros.lon, parametros.cidade);
+    return;
+  }
+
+  mostrarStatus("Use sua localização ou escolha uma cidade.");
+});

@@ -7,88 +7,92 @@ body {
 }
 
 .container {
-  max-width: 420px;
+  max-width: 640px;
   margin: 0 auto;
-  text-align: center;
 }
 
 h1 {
+  text-align: center;
   margin-bottom: 8px;
 }
 
 .descricao {
+  text-align: center;
   color: #4b5563;
-  margin-bottom: 20px;
-}
-
-.acoes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   margin-bottom: 16px;
 }
 
-button {
-  width: 100%;
+.voltar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.voltar a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.form-busca {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
   padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   font-size: 16px;
+}
+
+button {
+  padding: 12px;
   border: none;
   border-radius: 8px;
   background: #2563eb;
   color: white;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.botao-secundario {
-  background: #0f766e;
-}
-
-.cidade-atual {
-  font-weight: bold;
-  color: #1f2937;
+.mensagem {
   min-height: 24px;
-  margin: 0 0 8px;
-}
-
-.status {
   color: #374151;
-  min-height: 24px;
-  margin: 0 0 16px;
+  margin: 16px 0;
 }
 
-.resultado {
+.lista-resultados {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.card {
+.resultado {
   background: white;
-  padding: 16px;
   border-radius: 12px;
+  padding: 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
-  text-align: left;
 }
 
-.card h2 {
+.resultado h2 {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-size: 18px;
 }
 
-.clima {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.clima-icone {
-  font-size: 24px;
-}
-
-.card p {
+.resultado p {
   margin: 6px 0;
+}
+
+.resultado button {
+  margin-top: 10px;
+  width: 100%;
 }
