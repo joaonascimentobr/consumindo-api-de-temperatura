@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Previsão do Tempo</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    .card {
+      background: white;
+      margin: 10px auto;
+      padding: 15px;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🌦️ Previsão do Tempo</h1>
+
+  <button onclick="buscarLocalizacao()">Usar minha localização</button>
+
+  <p id="status"></p>
+
+  <div id="resultado"></div>
+
+  <script>
+
+    function buscarLocalizacao() {
+      document.getElementById("status").innerText = "Obtendo localização...";
+
+      navigator.geolocation.getCurrentPosition(
+        (posicao) => {
+          let lat = posicao.coords.latitude;
+          let lon = posicao.coords.longitude;
+
+          document.getElementById("status").innerText =
+            "Lat: " + lat + " | Lon: " + lon;
+
+          buscarClima(lat, lon);
+        },
+        () => {
+          alert("Não foi possível obter localização");
+        }
+      );
+    }
+
+    function buscarClima(lat, lon) {
+
+      let url = `http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+
+          let resultado = document.getElementById("resultado");
+          resultado.innerHTML = "";
+
+          // pegar os 3 primeiros dias
+          let dias = data.dataseries.slice(0, 3);
+
+          dias.forEach(dia => {
+
+            let card = `
+              <div class="card">
+                <h3>${dia.date}</h3>
+                <p>Clima: ${dia.weather}</p>
+                <p>Temp: ${dia.temp2m}°C</p>
+              </div>
+            `;
+
+            resultado.innerHTML += card;
+          });
+
+        })
+        .catch(err => {
+          console.log(err);
+          alert("Erro ao buscar clima");
+        });
+    }
+
+  </script>
+
+</body>
+</html>
