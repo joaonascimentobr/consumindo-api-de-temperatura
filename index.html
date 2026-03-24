@@ -54,8 +54,7 @@
     }
 
     function buscarClima(lat, lon) {
-
-      let url = `http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`;
+      let url = `https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`;
 
       fetch(url)
         .then(res => res.json())
